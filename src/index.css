@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 50% 7%;
+    --foreground: 45 30% 92%;
+
+    --card: 220 45% 10%;
+    --card-foreground: 45 30% 92%;
+
+    --popover: 220 45% 10%;
+    --popover-foreground: 45 30% 92%;
+
+    --primary: 42 62% 55%;
+    --primary-foreground: 220 50% 7%;
+
+    --secondary: 155 58% 26%;
+    --secondary-foreground: 45 30% 92%;
+
+    --muted: 220 30% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 42 62% 55%;
+    --accent-foreground: 220 50% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 42 62% 55%;
+
+    --radius: 0.75rem;
+
+    --ramadan-navy: 220 50% 7%;
+    --ramadan-navy-light: 220 40% 12%;
+    --ramadan-gold: 42 62% 55%;
+    --ramadan-gold-light: 42 70% 70%;
+    --ramadan-emerald: 155 58% 26%;
+    --ramadan-emerald-light: 155 45% 40%;
+
+    --sidebar-background: 220 45% 10%;
+    --sidebar-foreground: 45 30% 92%;
+    --sidebar-primary: 42 62% 55%;
+    --sidebar-primary-foreground: 220 50% 7%;
+    --sidebar-accent: 220 30% 15%;
+    --sidebar-accent-foreground: 45 30% 92%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 42 62% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+}
+
+@layer utilities {
+  .gold-glow {
+    box-shadow: 0 0 30px hsl(42 62% 55% / 0.3), 0 0 60px hsl(42 62% 55% / 0.1);
+  }
+
+  .gold-glow-intense {
+    box-shadow: 0 0 40px hsl(42 62% 55% / 0.5), 0 0 80px hsl(42 62% 55% / 0.2), 0 0 120px hsl(42 62% 55% / 0.1);
+  }
+
+  .emerald-glow {
+    box-shadow: 0 0 30px hsl(155 58% 26% / 0.3), 0 0 60px hsl(155 58% 26% / 0.1);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(42 70% 70%), hsl(42 62% 55%), hsl(42 50% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .geometric-border {
+    border-image: repeating-linear-gradient(45deg,
+        hsl(42 62% 55% / 0.3) 0px,
+        hsl(42 62% 55% / 0.3) 2px,
+        transparent 2px,
+        transparent 10px) 10;
+  }
+
+  /* Animations */
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+
+  @keyframes float-random {
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+
+    25% {
+      transform: translate(10px, -10px);
+    }
+
+    50% {
+      transform: translate(-5px, -15px);
+    }
+
+    75% {
+      transform: translate(-10px, 5px);
+    }
+  }
+
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes twinkle {
+
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(0.8);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes swing {
+
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes gradient-shift {
+
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-float-random {
+    animation: float-random 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.6s ease-out forwards;
+  }
+
+  .animate-swing {
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  .animate-blink {
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+        transparent,
+        hsl(42 62% 55% / 0.2),
+        transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Delay utilities */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
